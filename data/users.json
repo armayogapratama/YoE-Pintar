@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "username": "lauracinta13",
+    "email": "cintalaura@mail.com",
+    "password": "123lauracinta13",
+    "role": "Instructor"
+  },
+  {
+    "id": 2,
+    "username": "cintalaudya27",
+    "email": "laudyacinta@mail.com",
+    "password": "123cintalaudya27",
+    "role": "Instructor"
+  },
+  {
+    "id": 3,
+    "username": "ujangrobert8",
+    "email": "robertujang@mail.com",
+    "password": "123ujangrobert8",
+    "role": "Student"
+  }
+]
