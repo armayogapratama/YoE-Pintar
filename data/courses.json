@@ -1,0 +1,20 @@
+[
+  {
+    "name": "VueJs",
+    "discription": "Vue.js is a framework for building web applications that has a reactivity system that allows you to model and manage your application state. It is a popular choice for building user interfaces because of its simplicity and flexibility.",
+    "duration": 60,
+    "CategoryId": 1
+  },
+  {
+    "name": "Babel",
+    "discription": "a JavaScript compiler that is used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript that can run on older browsers. It is often used in conjunction with Vue.js to ensure that the code is compatible with a wide range of browsers.",
+    "duration": 60,
+    "CategoryId": 2
+  },
+  {
+    "name": "Blander",
+    "discription": "3D creation software that is used for creating animations, visual effects, and video games. It is a powerful tool that is used by professionals in the film and gaming industry",
+    "duration": 120,
+    "CategoryId": 3
+  }
+]
