@@ -18,3 +18,12 @@
 - Model & migration
 - Seed all data
 - Add Migration (bebas)
+
+3. Database Name & Table Name
+
+- YoEPintar (db Name)
+- Users, Profiles, Courses, Categories, UsesCourses (Table Name)
+
+4. List of Package
+
+- pg
