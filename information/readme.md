@@ -7,8 +7,8 @@
 - CRUD dari data Course \*
 - Membuat fitur search atau sort \*
 - Hooks untuk merubah password
-- Validasi notEmpty, notNull, isEmail, len (8 karakter) untuk password
-- Handle errornya di route tersebut
+- Validasi notEmpty, notNull, isEmail, len (8 karakter) untuk password \*
+- Handle errornya di route tersebut \*
 - Await > 1 \*
 - Helper untuk mendapatkan umur & dipanggil di getter
 - Static method dipanggil di hooks

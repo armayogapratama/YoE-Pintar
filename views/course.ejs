@@ -119,6 +119,19 @@
     }
   </style>
   <body>
+    <% if (deleted) { %>
+    <p
+      style="
+        margin-top: 2rem;
+        color: rgb(255, 0, 0);
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 700;
+      ">
+      <%= deleted %>
+    </p>
+    <% } %>
+
     <form style="margin-bottom: 1.5rem" action="">
       <input placeholder="Search" type="text" name="search" />
       <button type="submit">Search</button>
