@@ -152,6 +152,7 @@
         opacity: 0.3;
       }
 
+      input[type="email"],
       input[type="text"],
       input[type="password"] {
         width: 200px;
@@ -199,30 +200,30 @@
         margin-top: 20px;
       }
 
-      a.button {
-        font-size: 14px;
+      button.button {
+        font-size: 16px;
         font-weight: 600;
         color: white;
-        padding: 6px 25px 0px 20px;
+        padding: 2px 0 15px 0;
         margin: 10px 8px 20px 0px;
         display: inline-block;
         float: right;
         text-decoration: none;
-        width: 50px;
+        width: 90px;
         height: 27px;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
         background-color: #3a57af;
         -webkit-box-shadow: 0 3px rgba(58, 87, 175, 0.75);
-        -moz-box-shadow: 0 3px rgba(58, 87, 175, 0.75);
+        -moz-box-shadow: 0 3px rgba(53, 56, 67, 0.75);
         box-shadow: 0 3px rgba(58, 87, 175, 0.75);
         transition: all 0.1s linear 0s;
         top: 0px;
         position: relative;
       }
 
-      a.button:hover {
+      button.button:hover {
         top: 3px;
         background-color: #2e458b;
         -webkit-box-shadow: none;
@@ -237,24 +238,45 @@
 
       <form action="" method="post">
         <hr />
-  <hr>
-  <label id="icon" for="name"><i class="icon-envelope "></i></label>
-  <input type="text" name="email" id="name" placeholder="Email" required/>
+        <hr />
+        <label id="icon"><i class="icon-envelope"></i></label>
+        <input
+          type="email"
+          name="email"
+          id="name"
+          placeholder="Email"
+          required />
 
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="name" id="name" placeholder="Name" required/>
+        <label id="icon"><i class="icon-user"></i></label>
+        <input
+          type="text"
+          name="username"
+          id="name"
+          placeholder="Username"
+          required />
 
-  <label id="icon" for="name"><i class="icon-shield"></i></label>
-  <input type="password" name="password" id="name" placeholder="Password" required/>
+        <label id="icon"><i class="icon-shield"></i></label>
+        <input
+          type="password"
+          name="password"
+          id="name"
+          placeholder="Password"
+          required />
 
-  <div class="accounttype">
-    <input type="radio" value="None" id="radioOne" name="role" checked/>
-    <label for="radioOne" class="radio" chec>Personal</label>
-    <input type="radio" value="None" id="radioTwo" name="role" />
-    <label for="radioTwo" class="radio">Company</label>
-  </div>
-   <a href="/" class="button">Register</a>
-  </form>
-</div>
+        <div class="accounttype">
+          <input
+            type="radio"
+            value="Instuctor"
+            id="radioOne"
+            name="role"
+            checked />
+          <label for="radioOne" class="radio" chec>Instructor</label>
+          <input type="radio" value="Student" id="radioTwo" name="role" />
+          <label for="radioTwo" class="radio">Student</label>
+        </div>
+        <button class="button" type="submit">Register</button>
+        <!-- <a href="/register" class="button">Register</a> -->
+      </form>
+    </div>
   </body>
 </html>

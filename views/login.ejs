@@ -29,7 +29,7 @@
         .form {
           padding-top: 20px;
 
-          input[type="text"],
+          input[type="email"],
           input[type="password"],
           button {
             width: 80%;
@@ -41,7 +41,7 @@
             -moz-outline-style: none;
           }
 
-          input[type="text"],
+          input[type="email"],
           input[type="password"] {
             border: 1px solid #bbb;
             padding: 0 0 0 10px;
@@ -119,15 +119,15 @@
     }
   </style>
   <body>
-     <div class="login-wrap">
-  <h2>Login</h2>
-  
-  <div class="form">
-    <input type="text" placeholder="Username" name="username" />
-    <input type="password" placeholder="Password" name="password" />
-    <button> Sign in </button>
-    <a href="/register"> <p> Don't have an account? Register </p></a>
-  </div>
-</div>
+    <div class="login-wrap">
+      <h2>Login</h2>
+
+      <div class="form">
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Password" name="password" />
+        <button type="submit">Sign in</button>
+        <a href="/register"> <p>Don't have an account? Register</p></a>
+      </div>
+    </div>
   </body>
 </html>
