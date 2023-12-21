@@ -119,14 +119,20 @@
     }
   </style>
   <body>
+    <% if (errors) { %>
+    <strong style="color: rgb(255, 0, 0)"><%= errors %></strong>
+    <% } %>
+
     <div class="login-wrap">
       <h2>Login</h2>
 
       <div class="form">
-        <input type="email" placeholder="Email" name="email" />
-        <input type="password" placeholder="Password" name="password" />
-        <button type="submit">Sign in</button>
-        <a href="/register"> <p>Don't have an account? Register</p></a>
+        <form action="" method="post">
+          <input type="email" placeholder="Email" name="email" />
+          <input type="password" placeholder="Password" name="password" />
+          <button type="submit">Sign in</button>
+          <a href="/register"> <p>Don't have an account? Register</p></a>
+        </form>
       </div>
     </div>
   </body>
