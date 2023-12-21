@@ -24,7 +24,7 @@ class Controller {
     }
   }
 
-  static async readMore(req, res) {
+  static async profile(req, res) {
     const { id } = req.params;
     try {
       const profile = await Profile.findByPk(id, {
@@ -54,33 +54,7 @@ class Controller {
     }
   }
 
-  static async seeMore(req, res) {
-    const { id } = req.params;
-    try {
-      const category = await Category.findByPk(id, {
-        attributes: ["name", "cost"],
-      });
-      res.send(category);
-    } catch (error) {
-      console.log(error);
-      res.send(error.message);
-    }
-  }
-
-  // Category Route
-  static async allCategory(req, res) {
-    try {
-      const categories = await Category.findAll({
-        attributes: ["name", "cost"],
-      });
-      res.send(categories);
-    } catch (error) {
-      console.log(error);
-      res.send(error.message);
-    }
-  }
-
-  static async addCategory(req, res) {
+  static async addCourse(req, res) {
     try {
       res.send("Add Category");
     } catch (error) {
@@ -89,7 +63,7 @@ class Controller {
     }
   }
 
-  static async createCategory(req, res) {
+  static async createCourse(req, res) {
     try {
       res.send("Create Category");
     } catch (error) {
@@ -98,7 +72,7 @@ class Controller {
     }
   }
 
-  static async editCategory(req, res) {
+  static async editCourse(req, res) {
     try {
       res.send("Edit Category");
     } catch (error) {
@@ -107,7 +81,7 @@ class Controller {
     }
   }
 
-  static async updateCategory(req, res) {
+  static async updateCourse(req, res) {
     try {
       res.send("Update Category");
     } catch (error) {
@@ -116,7 +90,7 @@ class Controller {
     }
   }
 
-  static async deleteCategory(req, res) {
+  static async deleteCourse(req, res) {
     try {
       res.send("Delete Category");
     } catch (error) {
