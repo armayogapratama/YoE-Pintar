@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const {
   User,
   Profile,
@@ -39,14 +40,26 @@ class Controller {
 
   // Course Route
   static async allCourse(req, res) {
-    try {
-      const course = await Course.findAll({
-        attributes: ["id", "name", "description", "duration", "CategoryId"],
-        include: {
-          model: Category,
-          attributes: ["id", "name", "cost"],
+    const { search } = req.query;
+
+    const options = {
+      attributes: ["id", "name", "description", "duration", "CategoryId"],
+      include: {
+        model: Category,
+        attributes: ["id", "name", "cost"],
+      },
+    };
+
+    if (search) {
+      options.where = {
+        name: {
+          [Op.iLike]: `%${search}%`,
         },
-      });
+      };
+    }
+
+    try {
+      const course = await Course.findAll(options);
       res.render("course", { course });
     } catch (error) {
       console.log(error);
@@ -66,8 +79,8 @@ class Controller {
 
   static async createCourse(req, res) {
     try {
-      await Course.create(req.body)
-      res.redirect("/courses")
+      await Course.create(req.body);
+      res.redirect("/courses");
     } catch (error) {
       console.log(error);
       res.send(error.message);
