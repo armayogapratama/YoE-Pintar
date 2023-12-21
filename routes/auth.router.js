@@ -5,13 +5,14 @@ const {
   register,
   logout,
 } = require("../controllers/auth.controller");
+const { hasGuest } = require("../middleware/auth.middleware");
 
 const router = require("express").Router();
 
-router.get("/register", registerForm);
-router.post("/register", register);
-router.get("/login", loginForm);
-router.post("/login", login);
+router.get("/register", hasGuest, registerForm);
+router.post("/register", hasGuest, register);
+router.get("/login", hasGuest, loginForm);
+router.post("/login", hasGuest, login);
 router.get("/logout", logout);
 
 module.exports = router;
