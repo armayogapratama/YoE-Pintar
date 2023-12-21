@@ -17,8 +17,9 @@ class Authentic {
   }
 
   static async loginForm(req, res) {
+  
     try {
-      res.render("login");
+     res.render("login")
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -29,7 +30,7 @@ class Authentic {
     const { username, email, password, role } = req.body;
     try {
       await User.create({ username, email, password, role });
-      res.redirect("/courses");
+      res.redirect("/login");
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -37,8 +38,15 @@ class Authentic {
   }
 
   static async login(req, res) {
+    const { email , password }= req.body
     try {
-      res.send("login");
+     
+      const user = await User.findOne({ where:{ email }});
+      
+      if (!user) throw new Error('Invalid Email')
+
+      if(!user.verify(password)) throw new Error("Invalid Password")
+     res.redirect("/courses")
     } catch (error) {
       console.log(error);
       res.send(error.message);

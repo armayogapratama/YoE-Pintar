@@ -1,12 +1,12 @@
 1. Route
 
-- Home Landing Page
+- Home Landing Page \*
 - Menampilkan seluruh data Users (Anchor ke masing-masing role) \*
 - Menampilkan seluruh data Courses beserta Categorynya \*
 - Membuat fitur login (pair programming)
 - CRUD dari data Course \*
 - Membuat fitur search atau sort \*
-- Hooks untuk merubah password
+- Hooks untuk merubah password \*
 - Validasi notEmpty, notNull, isEmail, len (8 karakter) untuk password \*
 - Handle errornya di route tersebut \*
 - Await > 1 \*
@@ -30,3 +30,5 @@
 - sequelize \*
 - ejs \*
 - express \*
+-bcypt\*
+-express-seseion \*
