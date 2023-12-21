@@ -66,7 +66,8 @@ class Controller {
 
   static async createCourse(req, res) {
     try {
-      res.send("Create Category");
+      await Course.create(req.body)
+      res.redirect("/courses")
     } catch (error) {
       console.log(error);
       res.send(error.message);
