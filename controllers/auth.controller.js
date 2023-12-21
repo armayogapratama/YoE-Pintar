@@ -1,3 +1,11 @@
+const { Op } = require("sequelize");
+const {
+  User,
+  Profile,
+  Course,
+  Category,
+  UserCourse,
+} = require("../models/index");
 class Authentic {
   static async registerForm(req, res) {
     try {
@@ -18,8 +26,10 @@ class Authentic {
   }
 
   static async register(req, res) {
+    const { username, email, password, role } = req.body;
     try {
-      res.send("register");
+      await User.create({ username, email, password, role });
+      res.redirect("/courses");
     } catch (error) {
       console.log(error);
       res.send(error.message);
