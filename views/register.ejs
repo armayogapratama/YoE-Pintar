@@ -233,6 +233,10 @@
     </style>
   </head>
   <body>
+    <% if (errors) { %>
+    <strong style="color: rgb(255, 0, 0)"><%= errors %></strong>
+    <% } %>
+
     <div class="testbox">
       <h1>Registration</h1>
 
@@ -240,33 +244,22 @@
         <hr />
         <hr />
         <label id="icon"><i class="icon-envelope"></i></label>
-        <input
-          type="email"
-          name="email"
-          id="name"
-          placeholder="Email"
-          required />
+        <input type="email" name="email" id="name" placeholder="Email" />
 
         <label id="icon"><i class="icon-user"></i></label>
-        <input
-          type="text"
-          name="username"
-          id="name"
-          placeholder="Username"
-          required />
+        <input type="text" name="username" id="name" placeholder="Username" />
 
         <label id="icon"><i class="icon-shield"></i></label>
         <input
           type="password"
           name="password"
           id="name"
-          placeholder="Password"
-          required />
+          placeholder="Password" />
 
         <div class="accounttype">
           <input
             type="radio"
-            value="Instuctor"
+            value="Instructor"
             id="radioOne"
             name="role"
             checked />
@@ -275,7 +268,6 @@
           <label for="radioTwo" class="radio">Student</label>
         </div>
         <button class="button" type="submit">Register</button>
-        <!-- <a href="/register" class="button">Register</a> -->
       </form>
     </div>
   </body>

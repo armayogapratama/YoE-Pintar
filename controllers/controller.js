@@ -9,7 +9,7 @@ const {
 
 class Controller {
   static home(req, res) {
-    res.render("home")
+    res.render("home");
   }
 
   // User Route
@@ -32,7 +32,7 @@ class Controller {
         attributes: ["name", "dateOfBirth", "hobby", "gender"],
       });
       // res.send(profile);
-      res.render("profile" ,{profile})
+      res.render("profile", { profile });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -61,7 +61,7 @@ class Controller {
 
     try {
       const course = await Course.findAll(options);
-      res.render("course", { course, deleted });
+      res.render("course", { course, deleted, user: req.session.user });
     } catch (error) {
       console.log(error);
       res.send(error.message);

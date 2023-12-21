@@ -8,8 +8,9 @@ const {
 } = require("../models/index");
 class Authentic {
   static async registerForm(req, res) {
+    const { errors } = req.query;
     try {
-      res.render("register");
+      res.render("register", { errors });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -17,9 +18,9 @@ class Authentic {
   }
 
   static async loginForm(req, res) {
-  
+    const { errors } = req.query;
     try {
-     res.render("login")
+      res.render("login", { errors });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -33,33 +34,36 @@ class Authentic {
       res.redirect("/login");
     } catch (error) {
       console.log(error);
-      res.send(error.message);
+      res.redirect(
+        `/register?errors=${error.errors.map((err) => err.message)}`
+      );
     }
   }
 
   static async login(req, res) {
-    const { email , password }= req.body
+    const { email, password } = req.body;
     try {
-     
-      const user = await User.findOne({ where:{ email }});
-      
-      if (!user) throw new Error('Invalid Email')
+      const user = await User.findOne({ where: { email } });
 
-      if(!user.verify(password)) throw new Error("Invalid Password")
-     res.redirect("/courses")
+      if (!user) throw new Error("Invalid Email");
+      if (!user.verify(password)) throw new Error("Invalid Password");
+
+      req.session.user = user;
+      res.redirect("/courses");
     } catch (error) {
       console.log(error);
       res.send(error.message);
     }
   }
 
-  static async logout(req, res) {
-    try {
-      res.send("logout");
-    } catch (error) {
-      console.log(error);
-      res.send(error.message);
-    }
+  static logout(req, res) {
+    req.session.destroy((err) => {
+      if (err) {
+        res.send(err.message);
+      } else {
+        res.redirect("/login");
+      }
+    });
   }
 }
 
