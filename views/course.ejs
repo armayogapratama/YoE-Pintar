@@ -120,7 +120,7 @@
   </style>
   <body>
     <div style="margin-bottom: 1rem">
-      <strong>Login as <%= user.role %></strong>
+      <a href="/users"><strong><%= user.role %></strong></a>
     </div>
 
     <% if (deleted) { %>
@@ -156,7 +156,6 @@
           <th>Decription</th>
           <th>Duration</th>
           <th>Category</th>
-          <% if (user.role == 'Instructor') { %>
           <th>Detail</th>
         </tr>
       </thead>
@@ -172,7 +171,10 @@
             <a href="/courses/edit/<%= el.id %>">Edit</a> |
             <a href="/courses/delete/<%= el.id %>">Delete</a>
           </td>
-          <td><a href="/courses/buy/<%= el.id %>">buy</a></td>
+          <% } %> <% if (user.role == 'Student') { %>
+          <td>
+            <a href="/courses/buy/<%= el.id %>">buy</a>
+          </td>
           <% } %>
         </tr>
         <% }) %>
