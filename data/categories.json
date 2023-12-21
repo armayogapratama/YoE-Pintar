@@ -1,14 +1,22 @@
 [
   {
-    "name": "VueJS",
+    "name": "Star Course",
     "cost": 1000000
   },
   {
-    "name": "Babel",
+    "name": "Babel Course",
     "cost": 2000000
   },
   {
-    "name": "MongoDb",
+    "name": "MongoDb Course",
     "cost": 3000000
+  },
+  {
+    "name": "Js Course",
+    "cost": 5000000
+  },
+  {
+    "name": "Vue Course",
+    "cost": 4000000
   }
 ]
