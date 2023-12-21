@@ -15,9 +15,9 @@ class Controller {
   static async allUser(req, res) {
     try {
       const users = await User.findAll({
-        attributes: ["username", "email", "password"],
+        attributes: ["id", "username", "email", "role"],
       });
-      res.send(users);
+      res.render("user", { users });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -47,8 +47,7 @@ class Controller {
           attributes: ["name", "cost"],
         },
       });
-      // res.send(course);
-      res.render("course",{ course })
+      res.render("course", { course });
     } catch (error) {
       console.log(error);
       res.send(error.message);
