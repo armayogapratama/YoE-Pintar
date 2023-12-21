@@ -1,3 +1,11 @@
+const {
+  User,
+  Profile,
+  Course,
+  Category,
+  UserCourse,
+} = require("../models/index");
+
 class Controller {
   static home(req, res) {
     res.send("Hello World!");
@@ -6,7 +14,10 @@ class Controller {
   // User Route
   static async allUser(req, res) {
     try {
-      res.send("All User");
+      const users = await User.findAll({
+        attributes: ["username", "email", "password"],
+      });
+      res.send(users);
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -14,8 +25,12 @@ class Controller {
   }
 
   static async readMore(req, res) {
+    const { id } = req.params;
     try {
-      res.send("Read More User");
+      const profile = await Profile.findByPk(id, {
+        attributes: ["name", "dateOfBirth", "hobby", "gender"],
+      });
+      res.send(profile);
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -25,7 +40,14 @@ class Controller {
   // Course Route
   static async allCourse(req, res) {
     try {
-      res.send("All Course");
+      const course = await Course.findAll({
+        attributes: ["name", "description", "duration"],
+        include: {
+          model: Category,
+          attributes: ["name", "cost"],
+        },
+      });
+      res.send(course);
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -33,8 +55,12 @@ class Controller {
   }
 
   static async seeMore(req, res) {
+    const { id } = req.params;
     try {
-      res.send("Read More Category");
+      const category = await Category.findByPk(id, {
+        attributes: ["name", "cost"],
+      });
+      res.send(category);
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -44,7 +70,10 @@ class Controller {
   // Category Route
   static async allCategory(req, res) {
     try {
-      res.send("All Category");
+      const categories = await Category.findAll({
+        attributes: ["name", "cost"],
+      });
+      res.send(categories);
     } catch (error) {
       console.log(error);
       res.send(error.message);
