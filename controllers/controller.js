@@ -9,7 +9,7 @@ const {
 
 class Controller {
   static home(req, res) {
-    res.send("Hello World!");
+    res.render("home")
   }
 
   // User Route
