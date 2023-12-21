@@ -7,7 +7,7 @@
   },
   {
     "name": "Babel",
-    "description": "a JavaScript compiler that is used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript that can run on older browsers. It is often used in conjunction with Vue.js to ensure that the code is compatible with a wide range of browsers.",
+    "description": "a JavaScript compiler that is used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript that can run on older browsers. ",
     "duration": 60,
     "CategoryId": 2
   },
