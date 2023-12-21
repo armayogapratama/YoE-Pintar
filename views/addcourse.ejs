@@ -126,20 +126,22 @@ fieldset {
      <div class="container">  
   <form id="contact" action="" method="post">
     <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      <input placeholder="Your name" type="text" tabindex="1" name="name"  >
     </fieldset>
     <fieldset>
-      <textarea placeholder="Type your description Here...." tabindex="5" required></textarea>
+      <textarea placeholder="Type your description Here...." tabindex="5" name="description" ></textarea>
     </fieldset>
     <fieldset>
-      <input placeholder="Insert your duration Here...." type="number" tabindex="1" required>
+      <input placeholder="Insert your duration Here...." type="number" tabindex="1" name="duration" >
     </fieldset>
     <fieldset>
-     <% categories.forEach(el => { %>
+    
         <select name="CategoryId" > 
+            <% categories.forEach(el => { %>
             <option value="<%=el.id %>"><%=el.name %></option>
+            <% }) %>
         </select>
-     <% }) %>
+   
       </select>
     </fieldset>
    
