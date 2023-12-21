@@ -31,7 +31,8 @@ class Controller {
       const profile = await Profile.findByPk(id, {
         attributes: ["name", "dateOfBirth", "hobby", "gender"],
       });
-      res.send(profile);
+      // res.send(profile);
+      res.render("profile" ,{profile})
     } catch (error) {
       console.log(error);
       res.send(error.message);

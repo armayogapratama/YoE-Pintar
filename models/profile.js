@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     
     get age(){
       const now= new Date()
-      return this.dateOfBirth= now.getFullYear()-this.dateOfBirth.slice(0,4)
+      return this.dateOfBirth= now.getFullYear()-this.dateOfBirth.getFullYear()
     }
   }
   Profile.init(
