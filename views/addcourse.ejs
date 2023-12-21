@@ -135,7 +135,7 @@ fieldset {
       <input placeholder="Insert your duration Here...." type="number" tabindex="1" required>
     </fieldset>
     <fieldset>
-     <% category.forEach(el => { %>
+     <% categories.forEach(el => { %>
         <select name="CategoryId" > 
             <option value="<%=el.id %>"><%=el.name %></option>
         </select>
