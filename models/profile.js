@@ -5,6 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Profile.belongsTo(models.User);
     }
+    
+    get age(){
+      const now= new Date()
+      return this.dateOfBirth= now.getFullYear()-this.dateOfBirth.slice(0,4)
+    }
   }
   Profile.init(
     {
