@@ -1,14 +1,14 @@
 [
   {
-    "name": "Basic",
+    "name": "VueJS",
     "cost": 1000000
   },
   {
-    "name": "Prio",
+    "name": "Babel",
     "cost": 2000000
   },
   {
-    "name": "Prio+",
+    "name": "MongoDb",
     "cost": 3000000
   }
 ]
