@@ -151,6 +151,7 @@
           <th>Duration</th>
           <th>Category</th>
           <th>Detail</th>
+          <th>Buy</th>
         </tr>
       </thead>
       <tbody>
@@ -164,6 +165,7 @@
             <a href="/courses/edit/<%= el.id %>">Edit</a> |
             <a href="/courses/delete/<%= el.id %>">Delete</a>
           </td>
+          <td><a href="/courses/buy/<%= el.id %>">buy</a></td>
         </tr>
         <% }) %>
       </tbody>

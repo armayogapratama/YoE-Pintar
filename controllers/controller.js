@@ -1,4 +1,5 @@
 const { Op } = require("sequelize");
+const receipt = require('receipt');
 const {
   User,
   Profile,
@@ -138,6 +139,38 @@ class Controller {
     } catch (error) {
       console.log(error);
       res.send(error.message);
+    }
+  }
+
+  static async buy(req,res){
+    const { id } = req.params;
+    try {
+      const course = await Course.findOne({
+        include:{
+          model:Category,
+        }
+      },{ where: { id: id } });
+     const  output = receipt.create([    
+        { type: 'text', value: [
+            'YoE Course',
+            'Jakarta Indonesia',
+            'Yoe@store.com',
+            'www.yoe.com'
+        ], align: 'center' },
+        { type: 'empty' },
+        { type: 'properties', lines: [
+            { name: 'Date', value: new Date() },
+            {name:"Nama Course", value:course.name },
+            { name: 'Price', value:course.Category.cost}
+        ] },
+        { type: 'text', value: [
+            'Terima Kasih Telah Langanan Course Kami'
+        ], align: 'center' }
+        ]);
+      console.log(output)
+      res.redirect("/courses")
+    } catch (error) {
+      
     }
   }
 }
