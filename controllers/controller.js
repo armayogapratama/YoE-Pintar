@@ -40,7 +40,7 @@ class Controller {
 
   // Course Route
   static async allCourse(req, res) {
-    const { search } = req.query;
+    const { search, deleted } = req.query;
 
     const options = {
       attributes: ["id", "name", "description", "duration", "CategoryId"],
@@ -60,7 +60,7 @@ class Controller {
 
     try {
       const course = await Course.findAll(options);
-      res.render("course", { course });
+      res.render("course", { course, deleted });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -68,9 +68,10 @@ class Controller {
   }
 
   static async addCourse(req, res) {
+    const { errors } = req.query;
     try {
       const categories = await Category.findAll();
-      res.render("addcourse", { categories });
+      res.render("addcourse", { categories, errors });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -83,12 +84,15 @@ class Controller {
       res.redirect("/courses");
     } catch (error) {
       console.log(error);
-      res.send(error.message);
+      res.redirect(
+        `/courses/add?errors=${error.errors.map((err) => err.message)}`
+      );
     }
   }
 
   static async editCourse(req, res) {
     const { id } = req.params;
+    const { errors } = req.query;
     try {
       const categories = await Category.findAll();
       const course = await Course.findOne({
@@ -97,7 +101,7 @@ class Controller {
         },
         where: { id: id },
       });
-      res.render("editCourse", { course, categories });
+      res.render("editCourse", { course, categories, errors });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -118,16 +122,18 @@ class Controller {
       res.redirect("/courses");
     } catch (error) {
       console.log(error);
-      res.send(error.message);
+      res.redirect(
+        `/courses/edit/${id}?errors=${error.errors.map((err) => err.message)}`
+      );
     }
   }
 
   static async deleteCourse(req, res) {
-    const { id } = req.params
+    const { id } = req.params;
     try {
-      const course= await Course.findOne({where: {id: id}})
-      await course.destroy()
-    res.redirect("/courses")
+      const course = await Course.findOne({ where: { id: id } });
+      await course.destroy();
+      res.redirect(`/courses?deleted=${course.name} course has been deleted`);
     } catch (error) {
       console.log(error);
       res.send(error.message);
