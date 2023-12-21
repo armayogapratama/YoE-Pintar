@@ -41,10 +41,10 @@ class Controller {
   static async allCourse(req, res) {
     try {
       const course = await Course.findAll({
-        attributes: ["name", "description", "duration"],
+        attributes: ["id", "name", "description", "duration", "CategoryId"],
         include: {
           model: Category,
-          attributes: ["name", "cost"],
+          attributes: ["id", "name", "cost"],
         },
       });
       res.render("course", { course });
@@ -56,9 +56,8 @@ class Controller {
 
   static async addCourse(req, res) {
     try {
-      const categories= await Category.findAll()
-      res.render("addcourse",{ categories })
-      // res.send("Add Category");
+      const categories = await Category.findAll();
+      res.render("addcourse", { categories });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -75,8 +74,16 @@ class Controller {
   }
 
   static async editCourse(req, res) {
+    const { id } = req.params;
     try {
-      res.send("Edit Category");
+      const categories = await Category.findAll();
+      const course = await Course.findOne({
+        include: {
+          model: Category,
+        },
+        where: { id: id },
+      });
+      res.render("editCourse", { course, categories });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -84,8 +91,17 @@ class Controller {
   }
 
   static async updateCourse(req, res) {
+    const { id } = req.params;
+    const { name, description, duration, CategoryId } = req.body;
     try {
-      res.send("Update Category");
+      const course = await Course.findOne({
+        include: {
+          model: Category,
+        },
+        where: { id: id },
+      });
+      await course.update({ name, description, duration, CategoryId });
+      res.redirect("/courses");
     } catch (error) {
       console.log(error);
       res.send(error.message);

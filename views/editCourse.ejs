@@ -127,22 +127,22 @@ fieldset {
   <form id="contact" action="" method="post">
     <fieldset>
       <label>Name</label>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      <input name="name" value="<%= course.name %>" placeholder="Your name" type="text" tabindex="1" required autofocus>
     </fieldset>
     <fieldset>
       <label>Description</label>
-      <textarea placeholder="Type your description Here...." tabindex="5" required></textarea>
+      <textarea name="description" placeholder="Type your description Here...." tabindex="5" required><%= course.description %></textarea>
     </fieldset>
     <fieldset>
-      <label>Duration</label>
-      <input placeholder="Insert your duration Here...." type="number" tabindex="1" required>
+      <label>Duration/Month</label>
+      <input name="duration" value="<%= course.duration %>" placeholder="Insert your duration Here...." type="number" tabindex="1" required>
     </fieldset>
     <fieldset>
       <label>Category</label> <br>
         <select name="CategoryId">
           <option selected disabled>-- Select Category --</option>
           <% categories.forEach(el => { %>
-           <option value="<%= el.id %>"><%= el.name %></option>
+           <option value="<%= el.id %>" <%= el.id == course.CategoryId ? 'selected' : '' %>><%= el.name %></option>
           <% }) %>
         </select>
       </select>
