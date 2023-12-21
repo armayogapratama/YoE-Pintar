@@ -27,3 +27,4 @@
 4. List of Package
 
 - pg
+- sequelize

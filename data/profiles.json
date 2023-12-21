@@ -1,20 +1,20 @@
 [
   {
-    "username": "Laura Cinta",
+    "name": "Laura Cinta",
     "dateOfBirth": "2003-05-13",
     "hobby": "Membaca",
     "gender": "Female",
     "UserId": 1
   },
   {
-    "username": "Cinta Laudya",
+    "name": "Cinta Laudya",
     "dateOfBirth": "2005-09-27",
     "hobby": "Menulis",
     "gender": "Female",
     "UserId": 2
   },
   {
-    "username": "Ujang Robert",
+    "name": "Ujang Robert",
     "dateOfBirth": "2007-11-29",
     "hobby": "Menggambar",
     "gender": "Male",
