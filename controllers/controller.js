@@ -110,8 +110,11 @@ class Controller {
   }
 
   static async deleteCourse(req, res) {
+    const { id } = req.params
     try {
-      res.send("Delete Category");
+      const course= await Course.findOne({where: {id: id}})
+      await course.destroy()
+    res.redirect("/courses")
     } catch (error) {
       console.log(error);
       res.send(error.message);
