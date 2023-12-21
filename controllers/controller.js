@@ -47,7 +47,8 @@ class Controller {
           attributes: ["name", "cost"],
         },
       });
-      res.send(course);
+      // res.send(course);
+      res.render("course",{ course })
     } catch (error) {
       console.log(error);
       res.send(error.message);

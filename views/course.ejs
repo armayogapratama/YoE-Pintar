@@ -118,14 +118,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Primagama</td>
-      <td>usaha jasa pendidikan luar sekolah yang bergerak dibidang bimbingan belajar, didirikan tahun 1982</td>
-      <td>60</td>
-      <td>VueJS</td>
-      <td><a href="/courses/seeMore/:id"></a>seeMore</td>
-      
-    </tr>
+    <% course.forEach(el => { %>
+     <tr>
+        <td><%=el.name %></td>
+        <td><%=el.description %></td>
+        <td><%=el.duration %></td>
+        <td><%=el.Category.name %></td>
+        <td><a href="/courses/edit/:id">Edit</a> <a href="/courses/delete/:id">Delete</a></td> 
+     </tr>
+    <% }) %>
     
   </tbody>
 </table>
