@@ -126,34 +126,16 @@ fieldset {
      <div class="container">  
   <form id="contact" action="" method="post">
     <fieldset>
-<<<<<<< HEAD
-      <input placeholder="Your name" type="text" tabindex="1" name="name"  >
-    </fieldset>
-    <fieldset>
-      <textarea placeholder="Type your description Here...." tabindex="5" name="description" ></textarea>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Insert your duration Here...." type="number" tabindex="1" name="duration" >
-    </fieldset>
-    <fieldset>
-    
-        <select name="CategoryId" > 
-            <% categories.forEach(el => { %>
-            <option value="<%=el.id %>"><%=el.name %></option>
-            <% }) %>
-        </select>
-   
-=======
       <label>Name</label>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      <input name="name" placeholder="Your name" type="text" tabindex="1" required autofocus>
     </fieldset>
     <fieldset>
       <label>Description</label>
-      <textarea placeholder="Type your description Here...." tabindex="5" required></textarea>
+      <textarea name="description" placeholder="Type your description Here...." tabindex="5" required></textarea>
     </fieldset>
     <fieldset>
       <label>Duration</label>
-      <input placeholder="Insert your duration Here...." type="number" tabindex="1" required>
+      <input name="duration" placeholder="Insert your duration Here...." type="number" tabindex="1" required>
     </fieldset>
     <fieldset>
       <label>Category</label> <br>
@@ -163,8 +145,7 @@ fieldset {
            <option value="<%= el.id %>"><%= el.name %></option>
           <% }) %>
         </select>
->>>>>>> 5f37676c910fcee50b103b6fbf0227bcd2611349
-      </select>
+    </select>
     </fieldset>
    
     
