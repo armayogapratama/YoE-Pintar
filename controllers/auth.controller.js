@@ -43,8 +43,8 @@ class Authentic {
   static async login(req, res) {
     const { email, password } = req.body;
     try {
-      const user = await User.findOne({ where: { email } });
 
+      const user = await User.findOne({ where: { email } });
       if (!user) throw new Error("Invalid Email");
       if (!user.verify(password)) throw new Error("Invalid Password");
 

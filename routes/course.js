@@ -5,6 +5,7 @@ const {
   editCourse,
   updateCourse,
   deleteCourse,
+  buy,
 } = require("../controllers/controller");
 const { hasloged, admin } = require("../middleware/auth.middleware");
 
@@ -18,5 +19,6 @@ router.post("/add", createCourse);
 router.get("/edit/:id", editCourse);
 router.post("/edit/:id", updateCourse);
 router.get("/delete/:id", deleteCourse);
+router.get("/buy/:id",buy)
 
 module.exports = router;
