@@ -57,7 +57,9 @@ class Controller {
 
   static async addCourse(req, res) {
     try {
-      res.send("Add Category");
+      const categories= await Category.findAll()
+      res.render("addcourse",{ categories })
+      // res.send("Add Category");
     } catch (error) {
       console.log(error);
       res.send(error.message);
