@@ -119,7 +119,6 @@
     }
   </style>
   <body>
-
     <a href="/courses/add">Add</a>
     <table class="rtable">
       <thead>
@@ -139,8 +138,8 @@
           <td><%=el.duration %></td>
           <td><%=el.Category.name %></td>
           <td>
-            <a href="/courses/edit/:id">Edit</a> |
-            <a href="/courses/delete/:id">Delete</a>
+            <a href="/courses/edit/<%= el.id %>">Edit</a> |
+            <a href="/courses/delete/<%= el.id %>">Delete</a>
           </td>
         </tr>
         <% }) %>
@@ -148,4 +147,3 @@
     </table>
   </body>
 </html>
-
