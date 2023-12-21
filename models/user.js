@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       const hash = bcrypt.hashSync(this.password, salt);
       return hash;
     }
+
+    verify(plainpassword){
+      return bcrypt.compareSync(plainpassword,this.password)
+    }
+    
   }
   User.init(
     {
