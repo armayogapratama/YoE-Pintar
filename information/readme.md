@@ -10,8 +10,8 @@
 - Validasi notEmpty, notNull, isEmail, len (8 karakter) untuk password \*
 - Handle errornya di route tersebut \*
 - Await > 1 \*
-- Helper untuk mendapatkan umur & dipanggil di getter
-- Static method dipanggil di hooks
+- Helper untuk mendapatkan umur & dipanggil di getter \*
+- Static method dipanggil di hooks \*
 
 2. Database
 
@@ -30,5 +30,5 @@
 - sequelize \*
 - ejs \*
 - express \*
--bcypt\*
--express-seseion \*
+  -bcypt\*
+  -express-seseion \*

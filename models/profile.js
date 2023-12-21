@@ -1,14 +1,14 @@
 "use strict";
 const { Model } = require("sequelize");
+const age = require("../helper/formatAge");
 module.exports = (sequelize, DataTypes) => {
   class Profile extends Model {
     static associate(models) {
       Profile.belongsTo(models.User);
     }
-    
-    get age(){
-      const now= new Date()
-      return this.dateOfBirth= now.getFullYear()-this.dateOfBirth.getFullYear()
+
+    get age() {
+      return age(this.dateOfBirth);
     }
   }
   Profile.init(
