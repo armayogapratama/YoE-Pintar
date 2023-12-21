@@ -6,16 +6,15 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Profile);
     }
   }
-  User.init(
-    {
-      username: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-    },
-    {
-      sequelize,
-      modelName: "User",
-    }
-  );
+  User.init({
+    username: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    role:DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'User',
+  });
+
   return User;
 };
