@@ -170,9 +170,35 @@ class Controller {
       console.log(output)
       res.redirect("/courses")
     } catch (error) {
-      
+      console.log(error);
+      res.send(error.message);
     }
   }
+
+  static async addProfile(req,res){
+    const { id }= req.params
+    try {
+      
+      const userProfile = await User.findByPk(id)
+      res.render("addprofile" , { userProfile } )
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+  static async createProfile(req,res){
+ 
+    try {
+      await Profile.create(req.body)
+
+      res.redirect("/users")
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+  
 }
 
 module.exports = Controller;
